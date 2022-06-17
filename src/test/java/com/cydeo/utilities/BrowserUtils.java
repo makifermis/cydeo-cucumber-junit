@@ -1,11 +1,13 @@
 package com.cydeo.utilities;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class BrowserUtils {
@@ -58,7 +60,7 @@ public class BrowserUtils {
     }
 
     /*
-    Creawting a utility method for ExplicitWait so we don't have to repeat lines. When we use explicit wait, implicitly wait method will be out of order
+    Creating a utility method for ExplicitWait so we don't have to repeat lines. When we use explicit wait, implicitly wait method will be out of order
      */
     public static void waitForInvisibilityOf(WebElement webElement){
 
@@ -68,5 +70,33 @@ public class BrowserUtils {
 
     }
 
+    /**
+     * This method will accept a String as expected value and verify actual URL CONTAINS the value.
+     * @param expectedInURL
+     */
+    public static void verifyURLContains(String expectedInURL){
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
+    }
+
+    /**
+     * This method will accept a dropdown as a WebElement
+     * and return all the options' text in a List of String
+     * @param dropdownElement
+     * @return List<String> actualOptionsAsString
+     */
+
+    public static List<String> dropdownOptionsAsString(WebElement dropdownElement){
+        Select select = new Select(dropdownElement);
+        // List of all ACTUAL month <options> as a web element
+        List<WebElement> actualOptionsAsWebElement = select.getOptions();
+        // List of all ACTUAL month <options> as a string
+        List<String> actualOptionsAsString = new ArrayList<>();
+
+        for (WebElement eachWebElement : actualOptionsAsWebElement) {
+            actualOptionsAsString.add(eachWebElement.getText());
+        }
+
+        return actualOptionsAsString;
+    }
 
 }
