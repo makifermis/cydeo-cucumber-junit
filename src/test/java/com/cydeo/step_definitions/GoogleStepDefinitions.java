@@ -58,4 +58,11 @@ public class GoogleStepDefinitions {
 
     }
 
+    @Then("User should see {string} in the result")
+    public void userShouldSeeInTheResult(String capital) {
+        String actualText = googleSearchPage.getCapital().getText();
+
+        Assert.assertEquals(capital,actualText);
+
+    }
 }
