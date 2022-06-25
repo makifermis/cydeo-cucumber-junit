@@ -25,5 +25,5 @@ Feature: Calculator Tests
     Examples:
       | button1 | operator | button2 | result |
       | 5       | +        | 5       | 10     |
-      | 3       | ×       | 6       | 18     |
+      | 3       | ×        | 6       | 18     |
       | 6       | /        | 2       | 3      |

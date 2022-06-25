@@ -32,7 +32,7 @@
           |Turkey |Ankara |
           |USA    |Washington|
           |Ukraine|Kiev         |
-          |Gemany |Berlin       |
+          |Germany |Berlin       |
           |UK     |Londres       |
           |Latvia |Riga         |
           |Greece |Athènes       |
